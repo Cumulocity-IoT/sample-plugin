@@ -1,0 +1,59 @@
+<c8y-title>{{ CODEX_HOOK_LINKS }}</c8y-title>
+
+<!-- Include in the action bar -->
+<c8y-list-display-switch
+  class="form-inline"
+  (onListClassChange)="listClass = $event"
+  [listLength]="cards.length"
+></c8y-list-display-switch>
+
+<!-- The record list wrapper -->
+<div
+  class="card-group"
+  [ngClass]="listClass"
+>
+  <!-- The sticky header -->
+  <div class="page-sticky-header hidden-xs">
+    <div class="d-flex">
+      <div class="card-header card-column-20">
+        <span>Name</span>
+      </div>
+      <div class="card-block card-column-40">
+        <span>Description</span>
+      </div>
+    </div>
+  </div>
+  <!-- The records list -->
+  <div
+    class="col-sm-6 col-md-4 col-lg-4 col-xs-12"
+    *ngFor="let card of cards"
+  >
+    <div class="card pointer">
+      <div class="card-header separator card-column-20">
+        <span
+          class="card-title text-truncate"
+          title="{{ card.name }}"
+        >
+          {{ card.name }}
+        </span>
+        <div class="card-actions">
+          <a
+            class="btn btn-link p-0 text-muted"
+            title="Open in new tab"
+            [attr.role]="'button'"
+            [target]="'_blank'"
+            [attr.rel]="'noopener noreferrer'"
+            [attr.href]="card.url"
+          >
+            <i c8yIcon="external-link"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card-block card-column-40">
+        <small>
+          {{ card.description }}
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
