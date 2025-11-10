@@ -1,6 +1,5 @@
 import {
   DynamicWidgetDefinition,
-  gettext,
   hookNavigator,
   hookRoute,
   hookWidget,
@@ -11,6 +10,7 @@ import {
   exportConfigWithDevice,
   importConfigWithDevice
 } from '@c8y/ngx-components/widgets/import-export-config';
+import { gettext } from '@c8y/ngx-components/gettext';
 import { assetPaths } from '../assets/assets';
 import { CODEX_HOOK_LINKS } from './sample-plugin.model';
 import { SamplePluginConfigComponent } from './widget/sample-widget-config.component';
