@@ -1,6 +1,4 @@
-import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { FormsModule } from '@c8y/ngx-components';
+import { Component, computed, input } from '@angular/core';
 import { SamplePluginConfig } from '../sample-plugin.model';
 
 @Component({
@@ -8,14 +6,16 @@ import { SamplePluginConfig } from '../sample-plugin.model';
   template: `
     <div class="p-16">
       <h1>Sample-plugin</h1>
-      <p class="text">{{ config?.text || 'No text' }}</p>
-      <small>My context is: {{ config?.device?.name || 'No context' }}</small>
+      <p class="text">{{ displayText() }}</p>
+      <small>My context is: {{ deviceName() }}</small>
     </div>
   `,
   styleUrls: ['./sample-widget.component.css'],
-  standalone: true,
-  imports: [CommonModule, FormsModule]
+  standalone: true
 })
 export class SamplePluginComponent {
-  @Input() config: SamplePluginConfig;
+  readonly config = input<SamplePluginConfig>();
+
+  readonly displayText = computed(() => this.config()?.text || 'No text');
+  readonly deviceName = computed(() => this.config()?.device?.['name'] || 'No context');
 }
