@@ -25,7 +25,9 @@ export const samplePluginWidgetDefinition = {
   previewImage: assetPaths.previewImage,
   data: {
     schema: () =>
-      import('c8y-schema-loader?interfaceName=SamplePluginConfig!./sample-plugin.model'),
+      import(
+        'c8y-schema-loader?interfaceName=SamplePluginConfig&type=widget-config!./sample-plugin.model'
+      ),
     export: exportConfigWithDevice,
     import: importConfigWithDevice,
     settings: {
