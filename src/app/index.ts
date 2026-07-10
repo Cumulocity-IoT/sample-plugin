@@ -4,11 +4,11 @@ import {
   hookRoute,
   hookWidget,
   NavigatorNode,
-  NavigatorNodeData
+  NavigatorNodeData,
 } from '@c8y/ngx-components';
 import {
   exportConfigWithDevice,
-  importConfigWithDevice
+  importConfigWithDevice,
 } from '@c8y/ngx-components/widgets/import-export-config';
 import { gettext } from '@c8y/ngx-components/gettext';
 import { assetPaths } from '../assets/assets';
@@ -25,15 +25,13 @@ export const samplePluginWidgetDefinition = {
   previewImage: assetPaths.previewImage,
   data: {
     schema: () =>
-      import(
-        'c8y-schema-loader?interfaceName=SamplePluginConfig&type=widget-config!./sample-plugin.model'
-      ),
+      import('c8y-schema-loader?interfaceName=SamplePluginConfig&type=widget-config!./sample-plugin.model'),
     export: exportConfigWithDevice,
     import: importConfigWithDevice,
     settings: {
-      noNewWidgets: false
-    }
-  }
+      noNewWidgets: false,
+    },
+  },
 } satisfies DynamicWidgetDefinition;
 
 export const samplePluginWidgetProviders = [hookWidget(samplePluginWidgetDefinition)];
@@ -41,14 +39,14 @@ export const samplePluginWidgetProviders = [hookWidget(samplePluginWidgetDefinit
 export const samplePluginViewProviders = [
   hookRoute({
     path: 'codex-hook-links',
-    loadComponent: () => import('./view/sample-view.component').then(m => m.SampleViewComponent)
+    loadComponent: () => import('./view/sample-view.component').then((m) => m.SampleViewComponent),
   }),
   hookNavigator(
     new NavigatorNode({
       priority: -1,
       path: 'codex-hook-links',
       icon: 'navigation',
-      label: CODEX_HOOK_LINKS
-    } as NavigatorNodeData)
-  )
+      label: CODEX_HOOK_LINKS,
+    } as NavigatorNodeData),
+  ),
 ];

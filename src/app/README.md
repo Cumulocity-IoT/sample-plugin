@@ -16,8 +16,8 @@ exports: [
     module: 'samplePluginWidgetProviders',
     path: './src/app/index.ts',
     readmePath: './src/app/README.md',
-    description: 'Adds a custom widget and navigator node to the shell application'
-  }
+    description: 'Adds a custom widget and navigator node to the shell application',
+  },
 ];
 ```
 

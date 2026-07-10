@@ -6,7 +6,7 @@ import {
   Input,
   OnInit,
   TemplateRef,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
@@ -16,7 +16,7 @@ import {
   FormGroup,
   NgForm,
   ReactiveFormsModule,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { AlertService, DynamicComponent, FormGroupComponent } from '@c8y/ngx-components';
 import { WidgetConfigService } from '@c8y/ngx-components/context-dashboard';
@@ -40,7 +40,7 @@ import { SamplePluginComponent } from './sample-widget.component';
   `,
   viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
   standalone: true,
-  imports: [FormGroupComponent, ReactiveFormsModule, SamplePluginComponent, AsyncPipe]
+  imports: [FormGroupComponent, ReactiveFormsModule, SamplePluginComponent, AsyncPipe],
 })
 export class SamplePluginConfigComponent implements DynamicComponent, OnInit {
   @Input() config: SamplePluginConfig = {};
@@ -61,17 +61,17 @@ export class SamplePluginConfigComponent implements DynamicComponent, OnInit {
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
-      text: [this.config?.text || '', Validators.required]
+      text: [this.config?.text || '', Validators.required],
     });
 
     this.form.form.addControl('widgetConfig', this.formGroup);
     this.config$.next(this.config);
 
-    this.formGroup.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(value => {
+    this.formGroup.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((value) => {
       this.config$.next({ ...this.config, ...value });
     });
 
-    this.widgetConfigService.addOnBeforeSave(config => {
+    this.widgetConfigService.addOnBeforeSave((config) => {
       if (this.formGroup.invalid) {
         this.alert.warning('Please enter a valid text.');
         return false;

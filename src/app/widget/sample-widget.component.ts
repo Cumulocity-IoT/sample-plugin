@@ -11,7 +11,7 @@ import { SamplePluginConfig } from '../sample-plugin.model';
     </div>
   `,
   styleUrls: ['./sample-widget.component.css'],
-  standalone: true
+  standalone: true,
 })
 export class SamplePluginComponent {
   readonly config = input<SamplePluginConfig>();

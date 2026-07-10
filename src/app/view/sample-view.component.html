@@ -8,10 +8,7 @@
 ></c8y-list-display-switch>
 
 <!-- The record list wrapper -->
-<div
-  class="card-group"
-  [ngClass]="listClass"
->
+<div class="card-group" [ngClass]="listClass">
   <!-- The sticky header -->
   <div class="page-sticky-header hidden-xs">
     <div class="d-flex">
@@ -24,16 +21,10 @@
     </div>
   </div>
   <!-- The records list -->
-  <div
-    class="col-sm-6 col-md-4 col-lg-4 col-xs-12"
-    *ngFor="let card of cards"
-  >
+  <div class="col-sm-6 col-md-4 col-lg-4 col-xs-12" *ngFor="let card of cards">
     <div class="card pointer">
       <div class="card-header separator card-column-20">
-        <span
-          class="card-title text-truncate"
-          title="{{ card.name }}"
-        >
+        <span class="card-title text-truncate" title="{{ card.name }}">
           {{ card.name }}
         </span>
         <div class="card-actions">

@@ -11,7 +11,7 @@ export default {
       "base-uri 'none'; default-src 'self' 'unsafe-inline' http: https: ws: wss:; connect-src 'self' http: https: ws: wss:;  script-src 'self' *.bugherd.com *.twitter.com *.twimg.com *.aptrinsic.com 'unsafe-inline' 'unsafe-eval' data:; style-src * 'unsafe-inline' blob:; img-src * data: blob:; font-src * data:; frame-src *; worker-src 'self' blob:;",
     dynamicOptionsUrl: true,
     remotes: {
-      [name]: ['samplePluginWidgetProviders']
+      [name]: ['samplePluginWidgetProviders'],
     },
     package: 'plugin',
     isPackage: true,
@@ -23,16 +23,16 @@ export default {
         module: 'samplePluginWidgetProviders',
         path: './src/app/index.ts',
         readmePath: './src/app/README.md',
-        description: 'Adds a custom widget to the shell application'
+        description: 'Adds a custom widget to the shell application',
       },
       {
         name: 'Example sample plugin view',
         module: 'samplePluginViewProviders',
         path: './src/app/index.ts',
         readmePath: './src/app/README.md',
-        description: 'Adds a custom navigator node to the shell application'
-      }
-    ]
+        description: 'Adds a custom navigator node to the shell application',
+      },
+    ],
   },
   buildTime: {
     federation: [
@@ -50,7 +50,7 @@ export default {
       '@c8y/ngx-components',
       'ngx-bootstrap',
       '@ngx-translate/core',
-      '@ngx-formly/core'
-    ]
-  }
+      '@ngx-formly/core',
+    ],
+  },
 } as const satisfies ConfigurationOptions;
