@@ -7,6 +7,7 @@ import {
   OnInit,
   TemplateRef,
   ViewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
@@ -41,6 +42,7 @@ import { SamplePluginComponent } from './sample-widget.component';
   viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
   standalone: true,
   imports: [FormGroupComponent, ReactiveFormsModule, SamplePluginComponent, AsyncPipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
 })
 export class SamplePluginConfigComponent implements DynamicComponent, OnInit {
   @Input() config: SamplePluginConfig = {};

@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, input, ChangeDetectionStrategy } from '@angular/core';
 import { SamplePluginConfig } from '../sample-plugin.model';
 
 @Component({
@@ -12,6 +12,7 @@ import { SamplePluginConfig } from '../sample-plugin.model';
   `,
   styleUrls: ['./sample-widget.component.css'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
 })
 export class SamplePluginComponent {
   readonly config = input<SamplePluginConfig>();

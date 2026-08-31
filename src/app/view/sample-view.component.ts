@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HeaderModule, IconDirective, ListDisplaySwitchModule } from '@c8y/ngx-components';
 import { CODEX_HOOK_LINKS } from '../sample-plugin.model';
 
@@ -14,6 +14,7 @@ interface HookCard {
   templateUrl: './sample-view.component.html',
   standalone: true,
   imports: [CommonModule, HeaderModule, IconDirective, ListDisplaySwitchModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
 })
 export class SampleViewComponent implements OnInit {
   readonly CODEX_HOOK_LINKS = CODEX_HOOK_LINKS;
